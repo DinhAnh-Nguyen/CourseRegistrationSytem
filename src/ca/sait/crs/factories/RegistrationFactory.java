@@ -46,7 +46,13 @@ public class RegistrationFactory {
      */
     private boolean validateCourse(Course course) {
         // TODO: Add logic to test course is valid.
-        return true;
+    	if (course instanceof RequiredCourse) {
+			return true;
+		} else if (course instanceof OptionalCourse) {
+			return true;
+		} else {
+			return false;
+		}
     }
 
     /**
@@ -56,6 +62,10 @@ public class RegistrationFactory {
      */
     private boolean validateStudent(Student student) {
         // TODO: Add logic to test student is valid.
-        return true;
+    	if (student instanceof Student) {
+			return true;
+		} else {
+			return false;
+		}
     }
 }
