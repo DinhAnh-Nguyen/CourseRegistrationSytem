@@ -34,7 +34,9 @@ public class RealRegistrationService implements RegistrationService {
         // Do not catch CannotCreateRegistrationException in this method.
     	RegistrationFactory registrationFactory = new RegistrationFactory();
         Registration registration = registrationFactory.build(course, student);
-        
+    	
+    	// Registration registration = new ca.sait.crs.models.Registration(course, student);
+
         this.registrations.add(registration);
 
         return registration;
