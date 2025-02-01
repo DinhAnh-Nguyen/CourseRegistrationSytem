@@ -25,7 +25,7 @@ public class CourseRegistrationSystem {
 
         // TODO: Wrap RealRegistrationService using your ProxyRegistrationService
         // DO NOT MODIFY ANYTHING ELSE IN THIS FILE!
-        this.registrationService = new RealRegistrationService();
+        this.registrationService = new ProxyRegistrationService(2.0);
     }
 
     /**
@@ -113,6 +113,7 @@ public class CourseRegistrationSystem {
      */
     private void register() {
         // TODO: Create instance of StudentFactory.
+    	StudentFactory studentFactory = new StudentFactory();
 
         System.out.print("Enter course code: ");
         String courseCode = this.scanner.nextLine();
@@ -127,7 +128,8 @@ public class CourseRegistrationSystem {
 
         try {
             // TODO: Call build() method in StudentFactory instance to handle validating parameters and creating new Student object.
-            Student student = new ca.sait.crs.models.Student(studentName, studentGpa);
+        	// Student student = new ca.sait.crs.models.Student(studentName, studentGpa);
+        	Student student = studentFactory.build(studentName, studentGpa);
 
             Registration registration = this.registrationService.register(student, course);
 
