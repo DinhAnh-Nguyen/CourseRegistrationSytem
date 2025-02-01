@@ -36,6 +36,9 @@ public class StudentFactory {
      */
     private boolean validateName(String name) {
         // TODO: Add logic to test name is valid.
+    	if (name == null || name.trim().isEmpty()) {
+    		return false;
+    	}
         return true;
     }
 
@@ -46,6 +49,9 @@ public class StudentFactory {
      */
     private boolean validateGpa(double gpa) {
         // TODO: Add logic to test GPA is valid (hint: GPAs cannot be negative or more than 4.0).
+    	if (gpa < 0 || gpa > 4) {
+    		return false;
+    	}
         return true;
     }
 }
